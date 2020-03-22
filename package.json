@@ -1,5 +1,5 @@
 {
-  "name": "react-websocket-chat",
+  "name": "aws-ws-react-chat",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

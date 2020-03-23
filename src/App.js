@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
+import SendSVG from './svg/Send';
 
 /*
 
@@ -17,15 +18,20 @@ function scrollHandler(e) {
   else autoScroll = false;
 }
 
+function playSound(soundElement) {
+  soundElement.currentTime = 0;
+  soundElement.play();
+}
+
 function App() {
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
-  const [user, setUser] = useState("user");
+  const [user, setUser] = useState("...");
   const [usersOn, setUsersOn] = useState(0);
   const messageContainer = useRef(null);
+  const notificationSound = useRef(null);
 
   useEffect(() => {
-    console.log("Triggered");
     if (!awsSocket) {
       awsSocket = new WebSocket("wss://mt57ra0zm9.execute-api.us-east-1.amazonaws.com/prod");
       awsSocket.onopen = () => {
@@ -35,7 +41,7 @@ function App() {
       awsSocket.onclose = () => console.log("Socket closed");
       awsSocket.onmessage = (event) => {
         const message = JSON.parse(event.data);
-        switch(message.type) {
+        switch (message.type) {
           case "request":
             setUser(message.content);
             break;
@@ -43,7 +49,7 @@ function App() {
             setUsersOn(message.content);
             break;
           default:
-            setMessages(prev => [...prev, {sender: message.sender, content: message.content}]);
+            setMessages(prev => [...prev, { sender: message.sender, content: message.content }]);
         }
       };
       awsSocket.onerror = (error) => console.log("Error occured", error);
@@ -51,9 +57,9 @@ function App() {
   }, [setMessages, setUsersOn]);
 
   useEffect(() => {
-    console.log(autoScroll);
     if (autoScroll) messageContainer.current.scrollTop = messageContainer.current.scrollHeight;
-  }, [messages]);
+    if (messages.length > 0 && messages[messages.length - 1].sender !== user) playSound(notificationSound.current)
+  }, [messages, user]);
 
   const changeHandler = (e) => {
     setMessage(e.target.value);
@@ -69,25 +75,31 @@ function App() {
     <div className="App">
       <div className="chat-container">
         <div className="chat-header">
-          <h1>Welcome <span className="underline">{user}</span>!</h1>
+          <h1>Your ID is <span className="underline">{user}</span></h1>
           <h2>There are currently <span className="underline">{usersOn}</span> user(s) in the chat.</h2>
         </div>
-        <div ref={messageContainer} onScroll={e => scrollHandler(e, setMessages)} className="chat-body">
-          {messages.map((msg, i) => (
-            <li className={user === msg.sender ? "message you" : "message"} key={"msg-" + i}>
-              <span className="message-sender">{msg.sender}</span>
-              <span className="message-content">{msg.content}</span>
-            </li>
-           ))}
+        <div className="chat-body" ref={messageContainer} onScroll={(e) => scrollHandler(e, setMessages)} data-testid="chat-body">
+          <ul data-testid="chat-ul">
+            {messages.map((msg, i) => (
+              <li className={user === msg.sender ? "message you" : "message"} key={"msg-" + i}>
+                <span className="message-sender">{msg.sender}</span>
+                <span className="message-content">{msg.content}</span>
+              </li>
+            ))}
+          </ul>
         </div>
         <div className="chat-footer">
           <form className="chat-form" onSubmit={submitHandler}>
             <input type="text" placeholder="Your message..." value={message} onChange={changeHandler} required />
-            <input type="submit" value="Send" />
+            <label className="label-submit">
+              <input style={{ display: "none" }} type="submit" />
+              <SendSVG />
+            </label>
           </form>
         </div>
       </div>
-    </div>
+      <audio ref={notificationSound} src="notification.mp3" preload="auto"></audio>
+    </div >
   );
 }
 

@@ -38,6 +38,16 @@ functions:
         events:
             - websocket:
                   route: message
+    websocket-status:
+        handler: lambdas/websockets/status.handler
+        events:
+            - websocket:
+                  route: status
+    websocket-name_request:
+        handler: lambdas/websockets/name_request.handler
+        events:
+            - websocket:
+                  route: name_request
 
 resources:
     Resources:

@@ -80,6 +80,18 @@
         "LogGroupName": "/aws/lambda/chat-api-dev-websocket-message"
       }
     },
+    "WebsocketDashstatusLogGroup": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": "/aws/lambda/chat-api-dev-websocket-status"
+      }
+    },
+    "WebsocketDashnameUnderscorerequestLogGroup": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": "/aws/lambda/chat-api-dev-websocket-name_request"
+      }
+    },
     "IamRoleLambdaExecution": {
       "Type": "AWS::IAM::Role",
       "Properties": {
@@ -228,6 +240,18 @@
                         "WebsocketDashmessageLogGroup",
                         "Arn"
                       ]
+                    },
+                    {
+                      "Fn::GetAtt": [
+                        "WebsocketDashstatusLogGroup",
+                        "Arn"
+                      ]
+                    },
+                    {
+                      "Fn::GetAtt": [
+                        "WebsocketDashnameUnderscorerequestLogGroup",
+                        "Arn"
+                      ]
                     }
                   ]
                 }
@@ -244,7 +268,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/chat-api/dev/1584896373567-2020-03-22T16:59:33.567Z/chat-api.zip"
+          "S3Key": "serverless/chat-api/dev/1584983378089-2020-03-23T17:09:38.089Z/chat-api.zip"
         },
         "FunctionName": "chat-api-dev-websocket-connect",
         "Handler": "s_websocket_connect.handler",
@@ -268,14 +292,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "WebsocketDashconnectLambdaVersion8MOAReD8QzyHrAKHejNxmoFmPgBDm3G5OFawPCqbCv8": {
+    "WebsocketDashconnectLambdaVersionJWElQwK7FJloHCvGDiJ1UzFdR560pvKoUVGCmuZFJk": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "WebsocketDashconnectLambdaFunction"
         },
-        "CodeSha256": "ACevxHqkoV8g91XiOkD0w9prhtSQwA6udwUHSr3S0ls="
+        "CodeSha256": "nOFuiVI843Xiwkjs85hGdPtrBVO0zg8FRfdPMm5m3GI="
       }
     },
     "WebsocketDashdisconnectLambdaFunction": {
@@ -285,7 +309,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/chat-api/dev/1584896373567-2020-03-22T16:59:33.567Z/chat-api.zip"
+          "S3Key": "serverless/chat-api/dev/1584983378089-2020-03-23T17:09:38.089Z/chat-api.zip"
         },
         "FunctionName": "chat-api-dev-websocket-disconnect",
         "Handler": "s_websocket_disconnect.handler",
@@ -309,14 +333,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "WebsocketDashdisconnectLambdaVersion5DntSFPBOy5KM10TVtXeDOxcnhLKrJtLLCxdwFr6c": {
+    "WebsocketDashdisconnectLambdaVersionSJLOGimqQ6ftpli0csRaRd7QCLqpll6bVIOn9Ep4cA": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "WebsocketDashdisconnectLambdaFunction"
         },
-        "CodeSha256": "ACevxHqkoV8g91XiOkD0w9prhtSQwA6udwUHSr3S0ls="
+        "CodeSha256": "nOFuiVI843Xiwkjs85hGdPtrBVO0zg8FRfdPMm5m3GI="
       }
     },
     "WebsocketDashdefaultLambdaFunction": {
@@ -326,7 +350,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/chat-api/dev/1584896373567-2020-03-22T16:59:33.567Z/chat-api.zip"
+          "S3Key": "serverless/chat-api/dev/1584983378089-2020-03-23T17:09:38.089Z/chat-api.zip"
         },
         "FunctionName": "chat-api-dev-websocket-default",
         "Handler": "s_websocket_default.handler",
@@ -350,14 +374,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "WebsocketDashdefaultLambdaVersionsdq4kNW2x3P6Uzy1q1XN6uhY6YGYlGvgu1PsJuVVU": {
+    "WebsocketDashdefaultLambdaVersionS7gcZpvm88m7DOOuTz7LsPQKrukrrm7qApFxhcCCQ": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "WebsocketDashdefaultLambdaFunction"
         },
-        "CodeSha256": "ACevxHqkoV8g91XiOkD0w9prhtSQwA6udwUHSr3S0ls="
+        "CodeSha256": "nOFuiVI843Xiwkjs85hGdPtrBVO0zg8FRfdPMm5m3GI="
       }
     },
     "WebsocketDashmessageLambdaFunction": {
@@ -367,7 +391,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/chat-api/dev/1584896373567-2020-03-22T16:59:33.567Z/chat-api.zip"
+          "S3Key": "serverless/chat-api/dev/1584983378089-2020-03-23T17:09:38.089Z/chat-api.zip"
         },
         "FunctionName": "chat-api-dev-websocket-message",
         "Handler": "s_websocket_message.handler",
@@ -391,14 +415,96 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "WebsocketDashmessageLambdaVersionSDDKxvzzMwblPaFcGIQDvXMIJy0YLbP30w3RCruv5YU": {
+    "WebsocketDashmessageLambdaVersionH99lNo1B8HoSi5aq4gip2fPX7smF7heG9mwb4ZnNDE": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "WebsocketDashmessageLambdaFunction"
         },
-        "CodeSha256": "ACevxHqkoV8g91XiOkD0w9prhtSQwA6udwUHSr3S0ls="
+        "CodeSha256": "nOFuiVI843Xiwkjs85hGdPtrBVO0zg8FRfdPMm5m3GI="
+      }
+    },
+    "WebsocketDashstatusLambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "ServerlessDeploymentBucket"
+          },
+          "S3Key": "serverless/chat-api/dev/1584983378089-2020-03-23T17:09:38.089Z/chat-api.zip"
+        },
+        "FunctionName": "chat-api-dev-websocket-status",
+        "Handler": "s_websocket_status.handler",
+        "MemorySize": 1024,
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
+        },
+        "Runtime": "nodejs12.x",
+        "Timeout": 6,
+        "Environment": {
+          "Variables": {
+            "tableName": "WebsocketUsers"
+          }
+        }
+      },
+      "DependsOn": [
+        "WebsocketDashstatusLogGroup",
+        "IamRoleLambdaExecution"
+      ]
+    },
+    "WebsocketDashstatusLambdaVersionJSDeqdw2Z9YeFpK1et9CXq0PyZ9RUtZ5fajgsWSYY84": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "WebsocketDashstatusLambdaFunction"
+        },
+        "CodeSha256": "nOFuiVI843Xiwkjs85hGdPtrBVO0zg8FRfdPMm5m3GI="
+      }
+    },
+    "WebsocketDashnameUnderscorerequestLambdaFunction": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "ServerlessDeploymentBucket"
+          },
+          "S3Key": "serverless/chat-api/dev/1584983378089-2020-03-23T17:09:38.089Z/chat-api.zip"
+        },
+        "FunctionName": "chat-api-dev-websocket-name_request",
+        "Handler": "s_websocket_name_request.handler",
+        "MemorySize": 1024,
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleLambdaExecution",
+            "Arn"
+          ]
+        },
+        "Runtime": "nodejs12.x",
+        "Timeout": 6,
+        "Environment": {
+          "Variables": {
+            "tableName": "WebsocketUsers"
+          }
+        }
+      },
+      "DependsOn": [
+        "WebsocketDashnameUnderscorerequestLogGroup",
+        "IamRoleLambdaExecution"
+      ]
+    },
+    "WebsocketDashnameUnderscorerequestLambdaVersion7RBcFNTZcD679jkVBaTZltQku2UXyFq2Cyc4FJyZFeY": {
+      "Type": "AWS::Lambda::Version",
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "FunctionName": {
+          "Ref": "WebsocketDashnameUnderscorerequestLambdaFunction"
+        },
+        "CodeSha256": "nOFuiVI843Xiwkjs85hGdPtrBVO0zg8FRfdPMm5m3GI="
       }
     },
     "WebsocketsApi": {
@@ -538,6 +644,70 @@
         }
       }
     },
+    "WebsocketDashstatusWebsocketsIntegration": {
+      "Type": "AWS::ApiGatewayV2::Integration",
+      "Properties": {
+        "ApiId": {
+          "Ref": "WebsocketsApi"
+        },
+        "IntegrationType": "AWS_PROXY",
+        "IntegrationUri": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":apigateway:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":lambda:path/2015-03-31/functions/",
+              {
+                "Fn::GetAtt": [
+                  "WebsocketDashstatusLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "/invocations"
+            ]
+          ]
+        }
+      }
+    },
+    "WebsocketDashnameUnderscorerequestWebsocketsIntegration": {
+      "Type": "AWS::ApiGatewayV2::Integration",
+      "Properties": {
+        "ApiId": {
+          "Ref": "WebsocketsApi"
+        },
+        "IntegrationType": "AWS_PROXY",
+        "IntegrationUri": {
+          "Fn::Join": [
+            "",
+            [
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":apigateway:",
+              {
+                "Ref": "AWS::Region"
+              },
+              ":lambda:path/2015-03-31/functions/",
+              {
+                "Fn::GetAtt": [
+                  "WebsocketDashnameUnderscorerequestLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "/invocations"
+            ]
+          ]
+        }
+      }
+    },
     "WebsocketDashconnectLambdaPermissionWebsockets": {
       "Type": "AWS::Lambda::Permission",
       "DependsOn": [
@@ -599,6 +769,40 @@
         "FunctionName": {
           "Fn::GetAtt": [
             "WebsocketDashmessageLambdaFunction",
+            "Arn"
+          ]
+        },
+        "Action": "lambda:InvokeFunction",
+        "Principal": "apigateway.amazonaws.com"
+      }
+    },
+    "WebsocketDashstatusLambdaPermissionWebsockets": {
+      "Type": "AWS::Lambda::Permission",
+      "DependsOn": [
+        "WebsocketsApi",
+        "WebsocketDashstatusLambdaFunction"
+      ],
+      "Properties": {
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "WebsocketDashstatusLambdaFunction",
+            "Arn"
+          ]
+        },
+        "Action": "lambda:InvokeFunction",
+        "Principal": "apigateway.amazonaws.com"
+      }
+    },
+    "WebsocketDashnameUnderscorerequestLambdaPermissionWebsockets": {
+      "Type": "AWS::Lambda::Permission",
+      "DependsOn": [
+        "WebsocketsApi",
+        "WebsocketDashnameUnderscorerequestLambdaFunction"
+      ],
+      "Properties": {
+        "FunctionName": {
+          "Fn::GetAtt": [
+            "WebsocketDashnameUnderscorerequestLambdaFunction",
             "Arn"
           ]
         },
@@ -690,6 +894,48 @@
         }
       }
     },
+    "statusWebsocketsRoute": {
+      "Type": "AWS::ApiGatewayV2::Route",
+      "Properties": {
+        "ApiId": {
+          "Ref": "WebsocketsApi"
+        },
+        "RouteKey": "status",
+        "AuthorizationType": "NONE",
+        "Target": {
+          "Fn::Join": [
+            "/",
+            [
+              "integrations",
+              {
+                "Ref": "WebsocketDashstatusWebsocketsIntegration"
+              }
+            ]
+          ]
+        }
+      }
+    },
+    "nameUnderscorerequestWebsocketsRoute": {
+      "Type": "AWS::ApiGatewayV2::Route",
+      "Properties": {
+        "ApiId": {
+          "Ref": "WebsocketsApi"
+        },
+        "RouteKey": "name_request",
+        "AuthorizationType": "NONE",
+        "Target": {
+          "Fn::Join": [
+            "/",
+            [
+              "integrations",
+              {
+                "Ref": "WebsocketDashnameUnderscorerequestWebsocketsIntegration"
+              }
+            ]
+          ]
+        }
+      }
+    },
     "WebsocketsDeploymentStage": {
       "Type": "AWS::ApiGatewayV2::Stage",
       "Properties": {
@@ -699,17 +945,19 @@
         "StageName": "dev",
         "Description": "Serverless Websockets",
         "DeploymentId": {
-          "Ref": "WebsocketsDeploymentBZ0ctA607vGNJrTImnH5nVVb6qJ0SEWsbXlO003c"
+          "Ref": "WebsocketsDeploymentE4pNWbHRpKZHTxWySgdGfLxa5Jbwa6ieLOSP2YxMME"
         }
       }
     },
-    "WebsocketsDeploymentBZ0ctA607vGNJrTImnH5nVVb6qJ0SEWsbXlO003c": {
+    "WebsocketsDeploymentE4pNWbHRpKZHTxWySgdGfLxa5Jbwa6ieLOSP2YxMME": {
       "Type": "AWS::ApiGatewayV2::Deployment",
       "DependsOn": [
         "SconnectWebsocketsRoute",
         "SdisconnectWebsocketsRoute",
         "SdefaultWebsocketsRoute",
-        "messageWebsocketsRoute"
+        "messageWebsocketsRoute",
+        "statusWebsocketsRoute",
+        "nameUnderscorerequestWebsocketsRoute"
       ],
       "Properties": {
         "ApiId": {
@@ -776,6 +1024,26 @@
           "Ref": "WebsocketDashmessageLogGroup"
         }
       }
+    },
+    "CloudWatchLogsSubscriptionFilterWebsocketDashstatusLogGroup": {
+      "Type": "AWS::Logs::SubscriptionFilter",
+      "Properties": {
+        "DestinationArn": "arn:aws:logs:us-east-1:802587217904:destination:HLxkwNq5lbf6SnK1Mc#H0xwVqDsMQMMlCxwhS#chat-api#dev",
+        "FilterPattern": "?\"REPORT RequestId: \" ?\"SERVERLESS_ENTERPRISE\"",
+        "LogGroupName": {
+          "Ref": "WebsocketDashstatusLogGroup"
+        }
+      }
+    },
+    "CloudWatchLogsSubscriptionFilterWebsocketDashnameUnderscorerequestLogGroup": {
+      "Type": "AWS::Logs::SubscriptionFilter",
+      "Properties": {
+        "DestinationArn": "arn:aws:logs:us-east-1:802587217904:destination:HLxkwNq5lbf6SnK1Mc#H0xwVqDsMQMMlCxwhS#chat-api#dev",
+        "FilterPattern": "?\"REPORT RequestId: \" ?\"SERVERLESS_ENTERPRISE\"",
+        "LogGroupName": {
+          "Ref": "WebsocketDashnameUnderscorerequestLogGroup"
+        }
+      }
     }
   },
   "Outputs": {
@@ -795,25 +1063,37 @@
     "WebsocketDashconnectLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "WebsocketDashconnectLambdaVersion8MOAReD8QzyHrAKHejNxmoFmPgBDm3G5OFawPCqbCv8"
+        "Ref": "WebsocketDashconnectLambdaVersionJWElQwK7FJloHCvGDiJ1UzFdR560pvKoUVGCmuZFJk"
       }
     },
     "WebsocketDashdisconnectLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "WebsocketDashdisconnectLambdaVersion5DntSFPBOy5KM10TVtXeDOxcnhLKrJtLLCxdwFr6c"
+        "Ref": "WebsocketDashdisconnectLambdaVersionSJLOGimqQ6ftpli0csRaRd7QCLqpll6bVIOn9Ep4cA"
       }
     },
     "WebsocketDashdefaultLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "WebsocketDashdefaultLambdaVersionsdq4kNW2x3P6Uzy1q1XN6uhY6YGYlGvgu1PsJuVVU"
+        "Ref": "WebsocketDashdefaultLambdaVersionS7gcZpvm88m7DOOuTz7LsPQKrukrrm7qApFxhcCCQ"
       }
     },
     "WebsocketDashmessageLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "WebsocketDashmessageLambdaVersionSDDKxvzzMwblPaFcGIQDvXMIJy0YLbP30w3RCruv5YU"
+        "Ref": "WebsocketDashmessageLambdaVersionH99lNo1B8HoSi5aq4gip2fPX7smF7heG9mwb4ZnNDE"
+      }
+    },
+    "WebsocketDashstatusLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "WebsocketDashstatusLambdaVersionJSDeqdw2Z9YeFpK1et9CXq0PyZ9RUtZ5fajgsWSYY84"
+      }
+    },
+    "WebsocketDashnameUnderscorerequestLambdaFunctionQualifiedArn": {
+      "Description": "Current Lambda function version",
+      "Value": {
+        "Ref": "WebsocketDashnameUnderscorerequestLambdaVersion7RBcFNTZcD679jkVBaTZltQku2UXyFq2Cyc4FJyZFeY"
       }
     },
     "ServiceEndpointWebsocket": {

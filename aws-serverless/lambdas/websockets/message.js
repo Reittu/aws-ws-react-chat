@@ -27,8 +27,8 @@ exports.handler = async event => {
             await WebSocket.send({
                 domainName,
                 stage,
-                connectionID: item.ID,
-                message: connectionId + ":" + body.message,
+                connectionId: item.ID,
+                message: JSON.stringify({ sender: connectionId, content: body.message})
             });
         }
         return Responses._200({ message: 'Message received' });

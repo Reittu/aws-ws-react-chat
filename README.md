@@ -4,7 +4,7 @@ Made with React & AWS using WebSockets. Also includes serverless framework setup
 
 ## Live Demo
 
-[Demo](https://pfhkh.csb.app/)
+[Demo](https://pfhkh.codesandbox.io/)
 
 [Editor](https://codesandbox.io/s/aws-react-chat-app-pfhkh?fontsize=14&hidenavigation=1&theme=dark)
 
